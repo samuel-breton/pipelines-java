@@ -1,6 +1,13 @@
-# Maven
-# Build your Java project and run tests with Apache Maven.
-# Add steps that analyze code, save build artifacts, deploy, and more:
+# This is my (Maven) pipeline.
+# It is used to build my Java project and run tests with Apache Maven.
+# There are many like it, but this one is mine.
+# My pipeline is my best friend. It is my life.
+# I must master it as I must master my life.
+
+# Without me, my pipeline is useless.
+# Without my pipeline, I am useless.
+
+# Soon, I will add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
 trigger:
@@ -15,7 +22,7 @@ steps:
     mavenPomFile: 'pom.xml'
     mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.8'
+    jdkVersionOption: '1.17'
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
