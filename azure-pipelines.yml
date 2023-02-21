@@ -10,6 +10,21 @@
 # Soon, I will add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
+parameters:
+- name: experimentalTemplate
+  displayName: 'Use experimental build process?'
+  type: boolean
+  default: false
+
+variables:
+- group: groupe-de-variable-environnements
+- name: environnement
+  value: dev # uses runtime expression
+
+steps:
+- script: echo $(myhello) # uses macro syntax
+- script: echo $(environnement)
+
 trigger:
 - main
 
