@@ -22,8 +22,7 @@ variables:
   value: dev # uses runtime expression
 
 steps:
-- script: echo $(myhello) # uses macro syntax
-- script: echo $(environnement)
+
 
 trigger:
 - main
@@ -32,13 +31,18 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+- script: echo $(myhello) # uses macro syntax
+- script: echo $(environnement)
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
-    mavenOptions: '-Xmx3072m'
+    publishJUnitResults: true
+    testResultsFiles: '**/surefire-reports/VADER-*.xml'
+    testRunTitle: 'Alderaan'
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.17'
-    jdkArchitectureOption: 'x64'
-    publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'package'
+    mavenVersionOption: 'Default'
+    mavenOptions: '-Xmx3072m'
+    mavenAuthenticateFeed: false
+    effectivePomSkip: false
+    sonarQubeRunAnalysis: false
