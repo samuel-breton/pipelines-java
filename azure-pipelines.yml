@@ -21,9 +21,6 @@ variables:
 - name: environnement
   value: dev # uses runtime expression
 
-steps:
-
-
 trigger:
 - main
 
