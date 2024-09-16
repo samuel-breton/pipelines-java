@@ -10,8 +10,10 @@
 # Soon, I will add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
+environment: Dev
+
 trigger:
-- main
+- dev
 
 pool:
   vmImage: ubuntu-latest
